@@ -5,15 +5,15 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'orderBy',
 })
 export class OrderByPipe implements PipeTransform {
-  transform(value: User[], ...args: any[]): User[] {
+  transform(value: unknown[], ...args: any[]): User[] {
     if (!Array.isArray(value)) {
       return value;
     }
 
-    const [order = 'asc'] = args;
+    const [property, order = 'asc']: string[] = args;
 
     return value.sort((a, b) => {
-      const compare = a.name.localeCompare(b.name);
+      const compare = a[property].localeCompare(b[property]);
       return order == 'asc' ? compare : -compare;
     });
   }

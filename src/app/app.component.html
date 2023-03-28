@@ -19,17 +19,17 @@
   <div class="container">
     <div class="row">
       <div class="col">
-        <select class="form-select">
-          <option selected>Order by...</option>
+        <select class="form-select" [(ngModel)]="property">
+          <option selected disabled>Order by...</option>
           <option value="name">Name</option>
           <option value="city">City</option>
           <option value="gender">Gender</option>
         </select>
       </div>
       <div class="col">
-        <select class="form-select">
-          <option>ASC/DESC</option>
-          <option value="asc" selected>ASC</option>
+        <select class="form-select" [(ngModel)]="order">
+          <option selected disabled>ASC/DESC</option>
+          <option value="asc">ASC</option>
           <option value="desc">DESC</option>
         </select>
       </div>
@@ -47,7 +47,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let user of users | orderBy">
+      <tr *ngFor="let user of users | orderBy : property : order">
         <th scope="row">{{ user.id }}</th>
         <td>{{ user.name }}</td>
         <td>{{ user.city }}</td>

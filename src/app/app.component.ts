@@ -7,6 +7,9 @@ import { User } from './interfaces/user.interface';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+  property: string = 'name';
+  order: string = 'asc';
+
   users: User[] = [
     {
       id: 1,
