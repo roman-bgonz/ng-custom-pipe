@@ -21,6 +21,7 @@
       <div class="col">
         <select class="form-select" [(ngModel)]="property">
           <option selected disabled>Order by...</option>
+          <option value="id">Id</option>
           <option value="name">Name</option>
           <option value="city">City</option>
           <option value="gender">Gender</option>
@@ -40,10 +41,16 @@
     <caption></caption>
     <thead>
       <tr>
-        <th scope="col">#</th>
-        <th scope="col">Name</th>
-        <th scope="col">City</th>
-        <th scope="col">Gender</th>
+        <th scope="col" [ngClass]="{ 'text-success': property === 'id' }">#</th>
+        <th scope="col" [ngClass]="{ 'text-success': property === 'name' }">
+          Name
+        </th>
+        <th scope="col" [ngClass]="{ 'text-success': property === 'city' }">
+          City
+        </th>
+        <th scope="col" [ngClass]="{ 'text-success': property === 'gender' }">
+          Gender
+        </th>
       </tr>
     </thead>
     <tbody>
