@@ -47,11 +47,11 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of []">
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
+      <tr *ngFor="let user of users | orderBy">
+        <th scope="row">{{ user.id }}</th>
+        <td>{{ user.name }}</td>
+        <td>{{ user.city }}</td>
+        <td>{{ user.gender }}</td>
       </tr>
     </tbody>
   </table>
